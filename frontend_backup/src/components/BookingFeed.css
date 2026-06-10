@@ -1,0 +1,326 @@
+/* ============================================================
+   SCREEN 6: Live Booking Feed — WhatsApp-themed
+   ============================================================ */
+
+.feed-screen {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--layer-1);
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- WhatsApp-style Header --- */
+.feed-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  height: 60px;
+  padding: 0 var(--space-4);
+  background: var(--whatsapp-header);
+  flex-shrink: 0;
+}
+
+.feed-back-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 150ms var(--ease-smooth);
+}
+
+.feed-back-btn:active {
+  transform: scale(0.92);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.feed-header-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.feed-header-top {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.feed-live-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--brand-primary);
+  flex-shrink: 0;
+  animation: pulse-dot 1.5s ease-in-out infinite;
+}
+
+.feed-provider-name {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--text-100);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.feed-header-sub {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.feed-req-id {
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.5);
+  flex-shrink: 0;
+}
+
+/* --- Messages Area --- */
+.feed-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* --- Message Bubbles --- */
+.feed-msg {
+  display: flex;
+  flex-direction: column;
+  max-width: 85%;
+  animation: fadeInUp 300ms var(--ease-out) both;
+}
+
+.feed-msg-outbound {
+  align-self: flex-end;
+  align-items: flex-end;
+}
+
+.feed-msg-inbound {
+  align-self: flex-start;
+  align-items: flex-start;
+}
+
+.feed-bubble {
+  padding: 10px 14px;
+  word-break: break-word;
+}
+
+.feed-bubble-outbound {
+  background: var(--whatsapp-outbound);
+  border-radius: 18px 18px 4px 18px;
+}
+
+.feed-bubble-inbound {
+  background: var(--whatsapp-inbound);
+  border-radius: 18px 18px 18px 4px;
+}
+
+.feed-bubble-text {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--text-90);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.feed-msg-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-1);
+}
+
+.feed-msg-time {
+  font-family: var(--font-body);
+  font-size: 10px;
+  color: var(--text-40);
+}
+
+.feed-msg-sender {
+  font-family: var(--font-body);
+  font-size: 10px;
+  color: var(--text-40);
+  font-style: italic;
+}
+
+/* --- Status Pills --- */
+.feed-status-pill {
+  align-self: center;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--text-xs);
+  color: var(--text-70);
+  animation: fadeIn 300ms var(--ease-out) both;
+}
+
+/* --- Human-in-the-Loop Card --- */
+.feed-hitl-card {
+  align-self: stretch;
+  padding: var(--space-4);
+  background: linear-gradient(135deg, var(--layer-3), var(--layer-4));
+  border: 1px solid rgba(61, 255, 176, 0.4);
+  border-left: 3px solid var(--brand-primary);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 0 32px rgba(61, 255, 176, 0.1);
+  animation: slideUp 300ms var(--ease-spring) both;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.feed-hitl-label {
+  color: var(--brand-primary) !important;
+  font-size: 10px !important;
+}
+
+.feed-hitl-context {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--text-70);
+  margin: 0;
+}
+
+.feed-hitl-question {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--text-base);
+  color: var(--text-100);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.feed-hitl-input-wrapper {
+  width: 100%;
+}
+
+.feed-hitl-input {
+  width: 100%;
+  height: 44px;
+  padding: 0 var(--space-4);
+  background: var(--layer-2);
+  border: 1.5px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--text-90);
+  transition: all 200ms var(--ease-smooth);
+}
+
+.feed-hitl-input:focus {
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 3px var(--brand-glow);
+}
+
+.feed-hitl-input::placeholder {
+  color: var(--text-40);
+}
+
+.feed-hitl-btn {
+  height: 44px;
+}
+
+.feed-typing-bubble {
+  min-width: 56px;
+  padding: 12px 16px;
+}
+
+.feed-hitl-error {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--error, #ff6b6b);
+  margin: 0;
+}
+
+/* --- Progress Timeline --- */
+.feed-timeline {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  padding: var(--space-4) var(--space-5);
+  background: var(--layer-2);
+  border-top: 1px solid var(--divider);
+  overflow-x: auto;
+  flex-shrink: 0;
+}
+
+.feed-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  flex: 1;
+  min-width: 70px;
+}
+
+.feed-step-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--layer-4);
+  flex-shrink: 0;
+  z-index: 1;
+  transition: all 300ms var(--ease-smooth);
+}
+
+.feed-step.done .feed-step-dot {
+  background: var(--brand-primary);
+  box-shadow: 0 0 6px var(--brand-primary);
+}
+
+.feed-step.current .feed-step-dot {
+  background: var(--brand-primary);
+  animation: pulse-dot 1.5s ease-in-out infinite;
+}
+
+.feed-step-line {
+  position: absolute;
+  top: 3px;
+  left: calc(50% + 6px);
+  right: calc(-50% + 6px);
+  height: 2px;
+  background: var(--layer-4);
+}
+
+.feed-step.done .feed-step-line {
+  background: var(--brand-primary);
+}
+
+.feed-step-label {
+  font-family: var(--font-body);
+  font-size: 10px;
+  color: var(--text-40);
+  text-align: center;
+  margin-top: var(--space-2);
+  line-height: 1.2;
+}
+
+.feed-step.done .feed-step-label {
+  color: var(--text-70);
+}
+
+.feed-step.current .feed-step-label {
+  color: var(--brand-primary);
+}
+
+/* Fix slideUp for HITL */
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

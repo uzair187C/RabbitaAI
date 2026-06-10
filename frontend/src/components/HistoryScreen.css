@@ -1,0 +1,252 @@
+/* ============================================================
+   HistoryScreen — Luminous Hearth Design
+   ============================================================ */
+
+.hi-shell {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--bg-0);
+  overflow: hidden;
+}
+
+/* ── Header ── */
+.hi-header {
+  padding: 16px 20px 4px;
+  flex-shrink: 0;
+}
+
+.hi-title {
+  font-family: 'Clash Display', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  color: var(--text-1);
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* ── Filter chips ── */
+.hi-filters {
+  display: flex;
+  gap: 8px;
+  padding: 12px 20px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  flex-shrink: 0;
+}
+.hi-filters::-webkit-scrollbar { display: none; }
+
+.hi-filter-chip {
+  height: 30px;
+  padding: 0 14px;
+  border-radius: var(--radius-full);
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  font-family: 'Satoshi', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-2);
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+.hi-filter-chip.active {
+  background: var(--brand-dim);
+  border-color: var(--brand);
+  color: var(--brand);
+}
+
+/* ── List ── */
+.hi-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 4px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ── Shimmer cards ── */
+.hi-shimmer-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 14px;
+  height: 70px;
+}
+
+.hi-shimmer-emoji {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(90deg, var(--bg-2) 25%, var(--bg-3) 50%, var(--bg-2) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite linear;
+  flex-shrink: 0;
+}
+
+.hi-shimmer-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hi-shimmer-line {
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--bg-2) 25%, var(--bg-3) 50%, var(--bg-2) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+
+.hi-shimmer-title { height: 12px; width: 70%; }
+.hi-shimmer-sub { height: 10px; width: 45%; }
+
+.hi-shimmer-badge {
+  width: 60px;
+  height: 22px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(90deg, var(--bg-2) 25%, var(--bg-3) 50%, var(--bg-2) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite linear;
+  flex-shrink: 0;
+}
+
+/* ── Request cards ── */
+.hi-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 14px;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  opacity: 0; /* animated in */
+  transition: background 150ms ease, border-color 150ms ease, transform 120ms ease;
+}
+
+.hi-card:hover { border-color: rgba(61,255,176,0.2); background: var(--bg-3); }
+.hi-card:active { transform: scale(0.98); }
+
+.hi-card-emoji {
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  background: var(--bg-3);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hi-card-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.hi-card-query {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+.hi-card-provider {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 12px;
+  color: var(--text-2);
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hi-card-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+/* ── Status badges ── */
+.hi-badge {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+}
+
+.hi-badge-active {
+  background: var(--brand-dim);
+  color: var(--brand);
+}
+
+.hi-badge-confirmed {
+  background: var(--bg-3);
+  color: var(--text-2);
+}
+
+.hi-badge-cancelled {
+  background: rgba(255,77,106,0.1);
+  color: var(--error);
+}
+
+.hi-card-date {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--text-3);
+}
+
+/* ── Empty state ── */
+.hi-empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 8px;
+  padding: 48px 24px;
+}
+
+.hi-empty-emoji {
+  font-size: 44px;
+  display: block;
+  animation: float 3s ease-in-out infinite;
+  margin-bottom: 8px;
+}
+
+.hi-empty-title {
+  font-family: 'Clash Display', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--text-2);
+  margin: 0;
+}
+
+.hi-empty-sub {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 13px;
+  color: var(--text-3);
+  margin: 0;
+}

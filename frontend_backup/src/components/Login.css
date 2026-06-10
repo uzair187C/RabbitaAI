@@ -1,0 +1,179 @@
+/* ============================================================
+   SCREEN 2: Login Screen — Premium Apple-inspired
+   ============================================================ */
+
+.login-screen {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--layer-1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-5);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle radial gradient for dimensionality */
+.login-bg-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 80% 60% at 50% 40%,
+    rgba(61, 255, 176, 0.04) 0%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* --- Brand Section --- */
+.login-brand-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  margin-bottom: var(--space-12);
+}
+
+.login-logo-container {
+  width: 64px;
+  height: 64px;
+  border-radius: 20px;
+  background: rgba(61, 255, 176, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-4);
+}
+
+.login-brand-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-2xl);
+  color: var(--text-100);
+  letter-spacing: -0.03em;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.login-brand-tagline {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--text-base);
+  color: var(--text-70);
+  letter-spacing: -0.01em;
+  margin: var(--space-2) 0 0;
+}
+
+/* --- Glass Card --- */
+.login-card {
+  width: 100%;
+  max-width: 360px;
+  background: rgba(14, 16, 23, 0.8);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: 28px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  position: relative;
+  z-index: 1;
+}
+
+.login-card-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-lg);
+  color: var(--text-100);
+  margin: 0 0 var(--space-1);
+}
+
+.login-card-subtitle {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--text-70);
+  margin: 0 0 var(--space-6);
+}
+
+/* --- Google Sign-In Button --- */
+.google-signin-btn {
+  width: 100%;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-4);
+  background: var(--layer-3);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 150ms var(--ease-smooth);
+  position: relative;
+}
+
+.google-signin-btn:hover:not(:disabled) {
+  background: var(--layer-4);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.google-signin-btn:hover:not(:disabled) .google-signin-arrow {
+  transform: translateX(2px);
+}
+
+.google-signin-btn:active:not(:disabled) {
+  transform: scale(0.97);
+  transition-duration: 120ms;
+  transition-timing-function: var(--ease-spring);
+}
+
+.google-signin-btn:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+
+.google-signin-left {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.google-signin-text {
+  flex: 1;
+  text-align: center;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--text-base);
+  color: var(--text-90);
+}
+
+.google-signin-arrow {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  transition: transform 200ms var(--ease-smooth);
+}
+
+/* --- Error Message --- */
+.login-error {
+  color: var(--error);
+  font-size: var(--text-sm);
+  margin-top: var(--space-3);
+  line-height: 1.4;
+}
+
+/* --- Fine Print --- */
+.login-fine-print {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: var(--space-5);
+  position: relative;
+  z-index: 1;
+}
+
+.login-fine-print span {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--text-40);
+}

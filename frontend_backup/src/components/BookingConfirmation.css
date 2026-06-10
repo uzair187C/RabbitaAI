@@ -1,0 +1,230 @@
+/* ============================================================
+   SCREEN 7: Booking Confirmation — The Money Moment
+   ============================================================ */
+
+.confirmation-screen {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--layer-1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-5);
+  padding-top: calc(var(--safe-top) + var(--space-10));
+  animation: fadeIn 300ms var(--ease-out) both;
+}
+
+/* --- Hero / Success Indicator --- */
+.confirmation-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: var(--space-8);
+}
+
+.confirmation-circle {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid var(--brand-primary);
+  box-shadow: var(--shadow-brand);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0);
+  transition: transform 500ms var(--ease-spring);
+  margin-bottom: var(--space-6);
+}
+
+.confirmation-circle.visible {
+  transform: scale(1);
+}
+
+.confirmation-check {
+  width: 52px;
+  height: 52px;
+}
+
+.confirmation-check polyline {
+  transition: stroke-dashoffset 400ms var(--ease-out);
+}
+
+/* --- Confetti Particles --- */
+.confetti-particle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  animation: confettiFly var(--duration, 700ms) var(--ease-out) forwards;
+}
+
+@keyframes confettiFly {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(
+      calc(-50% + cos(var(--angle)) * var(--distance)),
+      calc(-50% + sin(var(--angle)) * var(--distance))
+    ) rotate(720deg) scale(0.3);
+    opacity: 0;
+  }
+}
+
+/* Fallback confetti for browsers without cos/sin */
+.confetti-particle:nth-child(1) { animation-name: confetti1; }
+.confetti-particle:nth-child(2) { animation-name: confetti2; }
+.confetti-particle:nth-child(3) { animation-name: confetti3; }
+.confetti-particle:nth-child(4) { animation-name: confetti4; }
+.confetti-particle:nth-child(5) { animation-name: confetti5; }
+.confetti-particle:nth-child(6) { animation-name: confetti6; }
+.confetti-particle:nth-child(7) { animation-name: confetti7; }
+.confetti-particle:nth-child(8) { animation-name: confetti8; }
+.confetti-particle:nth-child(9) { animation-name: confetti9; }
+.confetti-particle:nth-child(10) { animation-name: confetti10; }
+.confetti-particle:nth-child(11) { animation-name: confetti11; }
+.confetti-particle:nth-child(12) { animation-name: confetti12; }
+
+@keyframes confetti1 { 0% { transform: translate(-50%,-50%); opacity:1; } 100% { transform: translate(50px, -70px); opacity:0; } }
+@keyframes confetti2 { 0% { transform: translate(-50%,-50%); opacity:1; } 100% { transform: translate(70px, -30px); opacity:0; } }
+@keyframes confetti3 { 0% { transform: translate(-50%,-50%); opacity:1; } 100% { transform: translate(60px, 40px); opacity:0; } }
+@keyframes confetti4 { 0% { transform: translate(-50%,-50%); opacity:1; } 100% { transform: translate(20px, 70px); opacity:0; } }
+@keyframes confetti5 { 0% { transform: translate(-50%,-50%); opacity:1; } 100% { transform: translate(-30px, 65px); opacity:0; } }
+@keyframes confetti6 { 0% { transform: translate(-50%,-50%); opacity:1; } 100% { transform: translate(-65px, 30px); opacity:0; } }
+@keyframes confetti7 { 0% { transform: translate(-50%,-50%); opacity:1; } 100% { transform: translate(-70px, -20px); opacity:0; } }
+@keyframes confetti8 { 0% { transform: translate(-50%,-50%); opacity:1; } 100% { transform: translate(-50px, -60px); opacity:0; } }
+@keyframes confetti9 { 0% { transform: translate(-50%,-50%); opacity:1; } 100% { transform: translate(-10px, -75px); opacity:0; } }
+@keyframes confetti10 { 0% { transform: translate(-50%,-50%); opacity:1; } 100% { transform: translate(40px, -55px); opacity:0; } }
+@keyframes confetti11 { 0% { transform: translate(-50%,-50%); opacity:1; } 100% { transform: translate(75px, 10px); opacity:0; } }
+@keyframes confetti12 { 0% { transform: translate(-50%,-50%); opacity:1; } 100% { transform: translate(-40px, -45px); opacity:0; } }
+
+/* --- Confirmation Text --- */
+.confirmation-text {
+  text-align: center;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: all 400ms var(--ease-out);
+}
+
+.confirmation-text.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.confirmation-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-2xl);
+  color: var(--text-100);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.confirmation-provider {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-md);
+  color: var(--brand-primary);
+  margin: var(--space-2) 0;
+}
+
+.confirmation-time {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--text-70);
+  margin: 0;
+}
+
+/* --- Receipt Card --- */
+.confirmation-receipt {
+  width: 100%;
+  max-width: 360px;
+  background: var(--layer-2);
+  border-top: 3px solid var(--brand-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  margin-bottom: var(--space-6);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: all 400ms var(--ease-out) 100ms;
+}
+
+.confirmation-receipt.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.receipt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-3);
+}
+
+.receipt-id {
+  font-size: var(--text-xs);
+  color: var(--brand-primary);
+}
+
+.receipt-divider {
+  height: 1px;
+  background: var(--divider);
+  margin-bottom: var(--space-4);
+}
+
+.receipt-rows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.receipt-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.receipt-label {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--text-40);
+}
+
+.receipt-value {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--text-90);
+  text-align: right;
+}
+
+.receipt-whatsapp {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* --- Action Buttons --- */
+.confirmation-actions {
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: all 400ms var(--ease-out) 200ms;
+}
+
+.confirmation-actions.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.confirmation-actions .btn-ghost {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+}

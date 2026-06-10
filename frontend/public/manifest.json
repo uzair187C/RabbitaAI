@@ -1,0 +1,17 @@
+{
+  "name": "RabbitaAI",
+  "short_name": "RabbitaAI",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#09090E",
+  "theme_color": "#09090E",
+  "description": "Your global AI service agent.",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+/* ============================================================
+   SCREEN 5: Provider Selection — iOS Bottom Sheet
+   ============================================================ */
+
+.sheet-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: var(--overlay);
+  opacity: 0;
+  transition: opacity 300ms var(--ease-smooth);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.sheet-overlay.visible {
+  opacity: 1;
+}
+
+.sheet-container {
+  width: 100%;
+  max-width: 480px;
+  max-height: 85vh;
+  background: var(--layer-1);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  padding: 0 var(--space-5) var(--space-6);
+  padding-bottom: calc(var(--safe-bottom) + var(--space-6));
+  overflow-y: auto;
+  transform: translateY(100%);
+  transition: transform 350ms var(--ease-spring);
+  will-change: transform;
+}
+
+.sheet-container.visible {
+  transform: translateY(0);
+}
+
+/* --- Drag Handle --- */
+.sheet-handle-area {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-3) 0 var(--space-5);
+  cursor: grab;
+}
+
+.sheet-handle {
+  width: 36px;
+  height: 4px;
+  border-radius: var(--radius-full);
+  background: var(--layer-4);
+}
+
+/* --- Provider Header --- */
+.sheet-header {
+  margin-bottom: var(--space-5);
+}
+
+.sheet-provider-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--text-100);
+  margin: 0 0 var(--space-1);
+  letter-spacing: -0.02em;
+}
+
+.sheet-provider-meta {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--text-70);
+  margin: 0;
+}
+
+/* --- Rating Card --- */
+.sheet-rating-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-1);
+  padding: var(--space-4);
+  background: var(--layer-2);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-5);
+}
+
+.sheet-rating-main {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.sheet-rating-number {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-2xl);
+  color: var(--text-100);
+  letter-spacing: -0.02em;
+}
+
+.sheet-rating-source {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--text-40);
+}
+
+/* --- Details --- */
+.sheet-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.sheet-detail-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.sheet-detail-icon {
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.sheet-detail-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sheet-detail-text {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--text-90);
+}
+
+.sheet-detail-note {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--text-40);
+}
+
+/* --- Action Buttons --- */
+.sheet-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.sheet-book-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+/* --- Privacy Note --- */
+.sheet-privacy {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  background: var(--layer-2);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+}
+
+.sheet-privacy span {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--text-70);
+  line-height: 1.4;
+}

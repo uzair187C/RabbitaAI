@@ -1,0 +1,210 @@
+/* ============================================================
+   SCREEN 8: History Screen
+   ============================================================ */
+
+.history-screen {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--layer-1);
+  padding: var(--space-5);
+  padding-top: calc(var(--safe-top) + var(--space-5));
+  padding-bottom: calc(64px + var(--safe-bottom) + var(--space-5));
+}
+
+.history-header {
+  margin-bottom: var(--space-5);
+}
+
+.history-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-xl);
+  color: var(--text-100);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+/* --- Filter Pills --- */
+.history-filters {
+  display: flex;
+  gap: var(--space-2);
+  overflow-x: auto;
+  margin-bottom: var(--space-5);
+  padding-bottom: var(--space-1);
+  scrollbar-width: none;
+}
+
+.history-filters::-webkit-scrollbar {
+  display: none;
+}
+
+.history-filter-pill {
+  height: 32px;
+  padding: 0 14px;
+  border-radius: var(--radius-full);
+  background: transparent;
+  border: 1px solid var(--glass-border);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  color: var(--text-70);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 200ms var(--ease-smooth);
+  flex-shrink: 0;
+}
+
+.history-filter-pill:hover {
+  background: var(--glass-bg);
+}
+
+.history-filter-pill:active {
+  transform: scale(0.96);
+}
+
+.history-filter-pill.active {
+  background: var(--brand-glow);
+  border-color: var(--brand-primary);
+  color: var(--brand-primary);
+}
+
+/* --- Booking List --- */
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.history-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--layer-2);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: all 150ms var(--ease-smooth);
+}
+
+.history-card:hover {
+  background: var(--layer-3);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.history-card:active {
+  transform: scale(0.98);
+}
+
+.history-card-emoji {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.history-card-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.history-card-service {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--text-base);
+  color: var(--text-90);
+}
+
+.history-card-request {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--text-70);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.history-card-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-1);
+  flex-shrink: 0;
+}
+
+.history-card-date {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--text-40);
+}
+
+/* --- Status Badges --- */
+.history-status-badge {
+  height: 22px;
+  padding: 0 10px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.status-active {
+  background: rgba(61, 255, 176, 0.15);
+  color: var(--brand-primary);
+  border: 1px solid rgba(61, 255, 176, 0.3);
+}
+
+.status-completed {
+  background: rgba(168, 176, 192, 0.1);
+  color: var(--text-70);
+  border: 1px solid rgba(168, 176, 192, 0.2);
+}
+
+.status-cancelled {
+  background: rgba(255, 77, 106, 0.1);
+  color: var(--error);
+  border: 1px solid rgba(255, 77, 106, 0.2);
+}
+
+/* --- Empty State --- */
+.history-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-16) 0;
+  text-align: center;
+}
+
+.history-empty-logo {
+  animation: float 3s ease-in-out infinite;
+  margin-bottom: var(--space-5);
+}
+
+.history-empty-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-md);
+  color: var(--text-70);
+  margin: 0 0 var(--space-2);
+}
+
+.history-empty-subtitle {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--text-40);
+  margin: 0;
+}

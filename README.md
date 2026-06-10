@@ -29,19 +29,21 @@ WhatsApp is used.
 | Socket.io | Real-time booking feed |
 
 ## Architecture
-User → React Frontend (Firebase Hosting)
-↓
-Firebase Authentication
-↓
-Node.js Backend (Google Cloud Run)
-↓
-Gemini 2.0 Flash (Vertex AI)
-↙              ↘
-Google Maps      MongoDB Atlas
-Places API       (MCP Server)
-↓
-Meta WhatsApp
-Cloud API
+```mermaid
+flowchart TD
+    A[User] -->|Interacts with| B(React Frontend<br>Firebase Hosting)
+    B -->|Authenticates| C{Firebase Auth}
+    C -->|Secured API Calls| D[Node.js Backend<br>Google Cloud Run]
+    
+    D -->|Prompts & Tool Calls| E((Gemini 2.0 Flash<br>Vertex AI))
+    
+    E -->|Discovers local businesses| F[Google Maps<br>Places API]
+    E -->|Stores/Fetches State| G[(MongoDB Atlas<br>MCP Server)]
+    E -->|Negotiates & Books| H[Meta WhatsApp<br>Cloud API]
+    
+    H <-->|Bidirectional Chat| I[Local Providers]
+    D -.->|Real-time Socket.io Sync| B
+```
 
 ## MongoDB MCP Integration
 MongoDB Atlas MCP server manages complete booking lifecycle.

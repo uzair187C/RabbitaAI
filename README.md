@@ -20,7 +20,7 @@ WhatsApp is used.
 ## Tech Stack
 | Service | Purpose |
 |---------|---------|
-| Google Cloud Vertex AI (Gemini 2.0 Flash) | AI agent brain |
+| Google Cloud Vertex AI (Gemini Models) | AI agent brain |
 | MongoDB Atlas + MCP Server | Booking lifecycle + tool calls |
 | Google Cloud Run | Backend hosting |
 | Firebase Hosting + Auth | Frontend + authentication |
@@ -35,10 +35,10 @@ flowchart TD
     B -->|Authenticates| C{Firebase Auth}
     C -->|Secured API Calls| D[Node.js Backend / Cloud Run]
     
-    D -->|Prompts & Tool Calls| E((Gemini 2.0 Flash / Vertex AI))
+    D -->|Prompts & Tool Calls| E((Vertex AI Gemini Models))
     
     E -->|Discovers local businesses| F[Google Maps Places API]
-    E -->|Stores/Fetches State| G[(MongoDB Atlas / MCP Server)]
+    E -->|Stores/Fetches State| G[(MongoDB Atlas MCP Server)]
     E -->|Negotiates & Books| H[Meta WhatsApp Cloud API]
     
     H <-->|Bidirectional Chat| I[Local Providers]

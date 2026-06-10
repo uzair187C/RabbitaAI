@@ -31,15 +31,15 @@ WhatsApp is used.
 ## Architecture
 ```mermaid
 flowchart TD
-    A[User] -->|Interacts with| B(React Frontend<br>Firebase Hosting)
+    A[User] -->|Interacts with| B[React Frontend / Firebase Hosting]
     B -->|Authenticates| C{Firebase Auth}
-    C -->|Secured API Calls| D[Node.js Backend<br>Google Cloud Run]
+    C -->|Secured API Calls| D[Node.js Backend / Cloud Run]
     
-    D -->|Prompts & Tool Calls| E((Gemini 2.0 Flash<br>Vertex AI))
+    D -->|Prompts & Tool Calls| E((Gemini 2.0 Flash / Vertex AI))
     
-    E -->|Discovers local businesses| F[Google Maps<br>Places API]
-    E -->|Stores/Fetches State| G[(MongoDB Atlas<br>MCP Server)]
-    E -->|Negotiates & Books| H[Meta WhatsApp<br>Cloud API]
+    E -->|Discovers local businesses| F[Google Maps Places API]
+    E -->|Stores/Fetches State| G[(MongoDB Atlas / MCP Server)]
+    E -->|Negotiates & Books| H[Meta WhatsApp Cloud API]
     
     H <-->|Bidirectional Chat| I[Local Providers]
     D -.->|Real-time Socket.io Sync| B

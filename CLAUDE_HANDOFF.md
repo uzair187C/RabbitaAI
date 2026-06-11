@@ -70,12 +70,6 @@ Old terminal showed `ServeAI backend listening` — that was **before** auth rou
 
 ### `backend/.env` (exists, gitignored)
 
-- Firebase Admin: `FIREBASE_PROJECT_ID`, `FIREBASE_CLIENT_EMAIL`, `FIREBASE_PRIVATE_KEY` (from JSON file)
-- `MONGODB_URI=mongodb+srv://rabbitaxai:Rabbita%40786@rabbita-cluster.ebazxfv.mongodb.net/serveai?...`
-  - Password `Rabbita@786` is URL-encoded as `Rabbita%40786`
-- `PORT=8080`, `FRONTEND_URL=http://localhost:5173`
-- Empty placeholders: `GOOGLE_MAPS_API_KEY`, Twilio vars (Days 4–7)
-
 ### `frontend/.env` (exists, gitignored)
 
 - Full Firebase **web** config (`VITE_FIREBASE_API_KEY`, etc.)
